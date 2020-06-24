@@ -5,13 +5,14 @@
         Dim total_millisec As Integer = setTime * 1000
         Dim millisecNow As Integer = total_millisec
         ' lbCounter.Text = intCounter
-        Dim hour As Integer = Math.Floor(millisecNow / (60 * 60 * 1000)) 'ได้ชั่วโมง
-        Dim min As Integer = Math.Floor(((millisecNow / (60 * 1000)) - (hour * 60)))
-        Dim sec As Integer = Math.Floor((millisecNow / 1000) - (hour * 60 * 60) - (min * 60))
+        setTime = setTime * -1
+        Dim hour As Integer = setTime \ 60 ' Math.Floor(millisecNow / (60 * 60 * 1000)) 'ได้ชั่วโมง
+        Dim min As Integer = setTime Mod 60 'Math.Floor(((millisecNow / (60 * 1000)) - (hour * 60)))
+        'Dim sec As Integer = Math.Floor((millisecNow / 1000) - (hour * 60 * 60) - (min * 60))
         'Dim mil As Integer '= 100 * (((millisecNow / 1000) - (hour * 60 * 60) - (min * 60)) - sec)
         'mil = Math.Floor(millisecNow / 100 - (hour * 60 * 60) - (min * 60) - (sec * 100))
         ' lbMilSec.Text = mil
-        ans = hour.ToString("00") + ":" + min.ToString("00") + ":" + sec.ToString("00") '+ "." + mil.ToString("00")
+        ans = hour.ToString("00") + ":" + min.ToString("00")  '+ "." + mil.ToString("00")
         ' Application.DoEvents()
         Return ans
 
